@@ -37,17 +37,6 @@ Explanation:
 - pollSeconds: How often to check for new posts (recommend 1800–3600).
 - perRequestDelayMs: Delay between requests to different accounts to reduce rate limits.
 
-**Environment variables**
-```bash
-# Required
-export IG_SESSIONID="<paste your sessionid cookie value>"
-
-# Optional
-export CAPTION_LIMIT=2000         # Max caption characters in the embed description
-export STATE_FILE="./state.json"  # Path to local state file
-# export CONFIG_PATH="/path/to/config.json"  # If not in the same folder
-```
-
 **4) Run**
 ```bash
 node index.js

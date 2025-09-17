@@ -1,7 +1,9 @@
 {
+  "sessionid": "SESSIONID"
   "webhook": "DEFAULT WEBHOOK",
-  "pollSeconds": 60,
+  "pollSeconds": 3600,
   "perRequestDelayMs": 4000,
+  "sendOnFirstRun": true,
   "targets": [
     { "username": "username1", "webhook": "ALT WEBHOOK URL" },
     { "username": "username1", "webhook": "ALT WEBHOOK URL" },

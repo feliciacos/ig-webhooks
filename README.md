@@ -9,20 +9,23 @@ It supports multiple Instagram accounts and an optional per-account webhook over
 - A Discord Webhook URL (Server Settings → Integrations → Webhooks → New Webhook → Copy URL)
 - Your Instagram session cookie (sessionid) from a browser where you’re logged in
 
-2) Get your Instagram sessionid
+2) Get your Instagram cookie/sessionid
 - You need a valid Instagram session cookie so the script can fetch your feed like a real browser.
 
 **Easiest method (Firefox example)**
 - Install “Cookie-Editor” for Firefox:
 - https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/
+- Go to instagram in the browser, click the addon and export the cookie as cookie.json in the project dir.
 
 **3) Configure accounts (config.json)**
 - Create a config.json next to index.js:
 ```json
 {
+  "sessionid": "SESSIONID",
   "webhook": "https://discord.com/api/webhooks/DEFAULT_WEBHOOK_ID/TOKEN",
   "pollSeconds": 3600,
   "perRequestDelayMs": 4000,
+  "sendOnFirstRun": true,
   "targets": [
     { "username": "username1" },
     { "username": "username2", "webhook": "https://discord.com/api/webhooks/ALT_WEBHOOK_ID/TOKEN" },

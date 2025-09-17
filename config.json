@@ -1,5 +1,5 @@
 {
-  "sessionid": "SESSIONID"
+  "sessionid": "SESSIONID",
   "webhook": "DEFAULT WEBHOOK",
   "pollSeconds": 3600,
   "perRequestDelayMs": 4000,

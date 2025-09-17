@@ -4,17 +4,17 @@ It supports multiple Instagram accounts and an optional per-account webhook over
 
 - Important: Instagram’s web API is undocumented and can change. Use gentle polling and only monitor accounts you can legally view (public, or private accounts you follow).
 
-1) Requirements
+**1) Requirements**
 - Node.js 18 or newer (for built-in fetch)
 - A Discord Webhook URL (Server Settings → Integrations → Webhooks → New Webhook → Copy URL)
 - Your Instagram session cookie (sessionid) from a browser where you’re logged in
 
-2) Get your Instagram cookie/sessionid
+**2) Get your Instagram cookie/sessionid**
 - You need a valid Instagram session cookie so the script can fetch your feed like a real browser.
 
 **Easiest method (Firefox example)**
-- Install “Cookie-Editor” for Firefox:
-- https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/
+- Install “Cookie-Editor” for Firefox or Google Chrome
+- https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/ - https://chromewebstore.google.com/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm
 - Go to instagram in the browser, click the addon and export the cookie as cookie.json in the project dir.
 
 **3) Configure accounts (config.json)**
@@ -75,39 +75,7 @@ Actions:
 - Monitoring private accounts
         - You must be able to view the account in the same browser where you copied sessionid. If you cannot see the posts in that browser, the script cannot fetch them.
 
-**Optional: run as a systemd user service (Linux)**
-Create an environment file:
-```bash
-mkdir -p ~/.config/ig-discord-notifier
-cat > ~/.config/ig-discord-notifier/env <<'EOF'
-IG_SESSIONID=PASTE_YOUR_SESSIONID
-CAPTION_LIMIT=2000
-STATE_FILE=/home/USERNAME/ig-discord-notifier/state.json
-CONFIG_PATH=/home/USERNAME/ig-discord-notifier/config.json
-EOF
-chmod 600 ~/.config/ig-discord-notifier/env
-```
-Create a unit file:
-```bash
-mkdir -p ~/.config/systemd/user
-cat > ~/.config/systemd/user/ig-discord-notifier.service <<'EOF'
-[Unit]
-Description=IG -> Discord Notifier (Node)
-After=network-online.target
-
-[Service]
-Type=simple
-EnvironmentFile=%h/.config/ig-discord-notifier/env
-WorkingDirectory=%h/ig-discord-notifier
-ExecStart=/usr/bin/node %h/ig-discord-notifier/index.js
-Restart=on-failure
-RestartSec=10
-
-[Install]
-WantedBy=default.target
-EOF
-```
-Enable and start:
+**Enable and start:**
 ```bash
 systemctl --user daemon-reload
 systemctl --user enable --now ig-discord-notifier.service

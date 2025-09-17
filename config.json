@@ -1,0 +1,10 @@
+{
+  "webhook": "DEFAULT WEBHOOK",
+  "pollSeconds": 60,
+  "perRequestDelayMs": 4000,
+  "targets": [
+    { "username": "username1", "webhook": "ALT WEBHOOK URL" },
+    { "username": "username1", "webhook": "ALT WEBHOOK URL" },
+    { "username": "username1", "webhook": "ALT WEBHOOK URL" }
+  ]
+}

@@ -82,7 +82,7 @@ systemctl --user enable --now ig-discord-notifier.service
 journalctl --user -u ig-discord-notifier.service -f
 ```
 
-5) Optional - Docker install
+**5) Optional - Docker install**
 Create a project with all the required files inside a subfolder called ig-webhooks, run the below YAML in docker to create the working instance. (all the config still needs to be modified like above and your cookie.json needs to be placed here as well).
 ```yaml
 version: "3.8"

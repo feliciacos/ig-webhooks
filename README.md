@@ -12,7 +12,7 @@ It supports multiple Instagram accounts and an optional per-account webhook over
 **2) Get your Instagram cookie/sessionid**
 - You need a valid Instagram session cookie so the script can fetch your feed like a real browser.
 
-**Easiest method (Firefox example)**
+**How to get your cookie.json**
 - Install “Cookie-Editor” for Firefox or Google Chrome
 - https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/ - https://chromewebstore.google.com/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm
 - Go to instagram in the browser, click the addon and export the cookie as cookie.json in the project dir.
